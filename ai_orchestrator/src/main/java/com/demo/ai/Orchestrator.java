@@ -27,7 +27,7 @@ public class Orchestrator {
         // 주의: PC에 해당 모델(예: llama3, gemma 등)이 다운로드 되어 있어야 합니다. (명령어: ollama run llama3)
         ChatLanguageModel model = OllamaChatModel.builder()
                 .baseUrl("http://localhost:11434")
-                .modelName("llama3") // 로컬에 설치된 모델명으로 변경 가능
+                .modelName("gemma4:e4b") // 로컬에 설치된 모델명으로 변경 가능
                 .temperature(0.7)
                 .build();
 
@@ -44,7 +44,7 @@ public class Orchestrator {
             gamePlan = planner.planGame(userRequest);
             System.out.println("============== [초기 기획안] ==============\n" + gamePlan);
         } catch (Exception e) {
-            System.err.println("❌ Ollama 연결 실패. 모델(llama3)이 실행 중인지 확인하세요.");
+            System.err.println("❌ Ollama 연결 실패. 모델(gemma4:e4b)이 실행 중인지 확인하세요.");
             e.printStackTrace();
             return;
         }
